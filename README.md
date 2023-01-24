@@ -27,3 +27,45 @@ if os.path.exists("image.jpg"):
     im_norm.save("image_norm.jpg")
 else:
     print("The file image.jpg does not exist.")
+
+
+from sklearn import preprocessing
+import numpy as np
+x_array = np.array([2,3,5,6,7,4,8,7,6])
+normalized_arr = preprocessing.normalize([x_array])
+print(normalized_arr)
+
+
+from sklearn import preprocessing
+import numpy as np
+x_array = np.array([2,3,5,6,7,4,8,7,6])
+normalized_arr = preprocessing.normalize([x_array])
+print(normalized_arr)
+
+
+import pandas as pd
+housing = pd.read_csv("/content/sample_data/california_housing_train.csv")
+
+from sklearn import preprocessing
+x_array = np.array(housing['total_bedrooms'])
+normalized_arr = preprocessing.normalize([x_array])
+print(normalized_arr)
+
+from sklearn import preprocessing
+import pandas as pd
+housing = pd.read_csv("/content/sample_data/california_housing_train.csv")
+scaler = preprocessing.MinMaxScaler()
+names = housing.columns
+d = scaler.fit_transform(housing)
+scaled_df = pd.DataFrame(d, columns=names)
+scaled_df.head()
+
+from sklearn import preprocessing
+import pandas as pd
+housing = pd.read_csv("/content/sample_data/california_housing_train.csv")
+scaler = preprocessing.MinMaxScaler(feature_range=(0, 2))
+names = housing.columns
+d = scaler.fit_transform(housing)
+scaled_df = pd.DataFrame(d, columns=names)
+scaled_df.head()
+
